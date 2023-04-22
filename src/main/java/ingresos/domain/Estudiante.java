@@ -6,11 +6,11 @@ public class Estudiante extends Usuario  {
 
     private Boolean diligenciado;
 
-    private InfoPersonal estudianteP;
+    private InfoPersonal infoPersonal;
 
-    private InfoEconomica estudianteE;
+    private InfoEconomica infoEconomica;
 
-    private InfoAcademica estudianteA;
+    private InfoAcademica infoAcademica;
 
 
     public Estudiante() {
@@ -33,28 +33,40 @@ public class Estudiante extends Usuario  {
         this.diligenciado = diligenciado;
     }
 
-    public InfoPersonal getEstudianteP() {
-        return this.estudianteP;
+    public InfoPersonal getInfoPersonal() {
+        return this.infoPersonal;
     }
 
-    public void setEstudianteP(InfoPersonal infoPersonal) {
-        this.estudianteP = infoPersonal;
+    public void setInfoPerosnal(InfoPersonal infoPersonal) {
+        this.infoPersonal = infoPersonal;
     }
 
-    public InfoEconomica getEstudianteE() {
-        return this.estudianteE;
+    public InfoEconomica getinfoEconomica() {
+        return this.infoEconomica;
     }
 
-    public void setEstudianteE(InfoEconomica infoEconomica) {
-        this.estudianteE = infoEconomica;
+    public void setinfoEconomica(InfoEconomica infoEconomica) {
+        this.infoEconomica = infoEconomica;
     }
 
-    public InfoAcademica getEstudianteA() {
-        return this.estudianteA;
+    public InfoAcademica getinfoAcademica() {
+        return this.infoAcademica;
     }
 
-    public void setEstudianteA(InfoAcademica infoAcademica) {
-        this.estudianteA = infoAcademica;
+    public void setinfoAcademica(InfoAcademica infoAcademica) {
+        this.infoAcademica = infoAcademica;
+    }
+
+    public void realizarRegistro(Estudiante estudiante) {
+        estudiante.diligenciado = true;
+        //estudiante.save();   Se guarda el estudiante en la base de datos
+        
+    }
+
+    public Estudiante  consultarInfoEstudiante(int ID){
+        //se busca el estudiante con el ID en la base de datos
+        Estudiante estudiante= new Estudiante();
+        return estudiante;
     }
 
 }
