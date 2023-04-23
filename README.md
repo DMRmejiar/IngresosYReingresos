@@ -1,4 +1,5 @@
 # IngresosYReingresos
+[![Quality Gate Status](http://20.241.215.128:9000/api/project_badges/measure?project=LocalBackendIngresos&metric=alert_status&token=sqb_2ed98560d92989ed1ac107111308020f960d42df)](http://20.241.215.128:9000/dashboard?id=LocalBackendIngresos)
 
 This application was generated using JHipster 7.9.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.9.3](https://www.jhipster.tech/documentation-archive/v7.9.3).
 
