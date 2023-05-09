@@ -1,7 +1,13 @@
 package ingresos.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "otro-estudio-formal")
 public class OtroEstudioFormal {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String institucion;

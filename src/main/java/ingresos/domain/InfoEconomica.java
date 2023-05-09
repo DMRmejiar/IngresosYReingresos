@@ -1,8 +1,14 @@
 package ingresos.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "info-economica")
 public class InfoEconomica {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String direccion;
 
@@ -20,11 +26,11 @@ public class InfoEconomica {
 
     private Boolean tieneDependientes;
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

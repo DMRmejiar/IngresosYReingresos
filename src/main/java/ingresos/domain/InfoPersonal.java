@@ -1,10 +1,18 @@
 package ingresos.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "info-personal")
 public class InfoPersonal {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String tipoID;
+    private String identificacion;
+
+    private String tipoIdentificacion;
 
     private String nombre;
 
@@ -24,20 +32,28 @@ public class InfoPersonal {
 
     private String nacionalidad;
 
-    public String getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getTipoID() {
-        return this.tipoID;
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void setTipoID(String tipoID) {
-        this.tipoID = tipoID;
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public String getTipoIdentificacion() {
+        return this.tipoIdentificacion;
+    }
+
+    public void setTipoIdentificacion(String tipoIdentificacion) {
+        this.tipoIdentificacion = tipoIdentificacion;
     }
 
     public String getNombre() {

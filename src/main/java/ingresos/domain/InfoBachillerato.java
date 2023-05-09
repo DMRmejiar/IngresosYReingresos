@@ -1,8 +1,14 @@
 package ingresos.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "info-bachillerato")
 public class InfoBachillerato {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String ciudad;
 
@@ -18,11 +24,11 @@ public class InfoBachillerato {
 
     private Integer puntajeIcfes;
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

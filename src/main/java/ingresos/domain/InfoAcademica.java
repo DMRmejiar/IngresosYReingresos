@@ -1,15 +1,26 @@
 package ingresos.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "Info-academica")
 public class InfoAcademica {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne
+    @JoinColumn(name = "id-info-bachillerato")
     private InfoBachillerato bachillerato;
 
-    private OtroEstudioFormal otrosEstudios;
+    @OneToMany
+    @JoinColumn(name = "id-otros-estudios")
+    private List<OtroEstudioFormal> otrosEstudios;
 
+    @OneToMany
+    @JoinColumn(name = "id-matricula-semestre")
     private List<MatriculaSemestre> informacionU;
 
     public Long getId() {
@@ -28,11 +39,11 @@ public class InfoAcademica {
         this.bachillerato = bachillerato;
     }
 
-    public OtroEstudioFormal getOtrosEstudios(){
+    public List<OtroEstudioFormal> getOtrosEstudios(){
         return this.otrosEstudios;
     }
 
-    public void setOtrosEstudios(OtroEstudioFormal otrosEstudios){
+    public void setOtrosEstudios(List<OtroEstudioFormal> otrosEstudios){
         this.otrosEstudios = otrosEstudios;
     }
 

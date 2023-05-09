@@ -1,15 +1,28 @@
 package ingresos.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "estudiantes")
 public class Estudiante extends Usuario  {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(name = "diligenciado")
     private Boolean diligenciado;
 
+    @OneToOne
+    @JoinColumn(name = "id-info-personal")
     private InfoPersonal infoPersonal;
 
+    @OneToOne
+    @JoinColumn(name = "id-info-economica")
     private InfoEconomica infoEconomica;
 
+    @OneToOne
+    @Column(name = "id-info-academica")
     private InfoAcademica infoAcademica;
 
 
@@ -17,11 +30,11 @@ public class Estudiante extends Usuario  {
 
     }
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,36 +50,24 @@ public class Estudiante extends Usuario  {
         return this.infoPersonal;
     }
 
-    public void setInfoPerosnal(InfoPersonal infoPersonal) {
+    public void setInfoPersonal(InfoPersonal infoPersonal) {
         this.infoPersonal = infoPersonal;
     }
 
-    public InfoEconomica getinfoEconomica() {
+    public InfoEconomica getInfoEconomica() {
         return this.infoEconomica;
     }
 
-    public void setinfoEconomica(InfoEconomica infoEconomica) {
+    public void setInfoEconomica(InfoEconomica infoEconomica) {
         this.infoEconomica = infoEconomica;
     }
 
-    public InfoAcademica getinfoAcademica() {
+    public InfoAcademica getInfoAcademica() {
         return this.infoAcademica;
     }
 
-    public void setinfoAcademica(InfoAcademica infoAcademica) {
+    public void setInfoAcademica(InfoAcademica infoAcademica) {
         this.infoAcademica = infoAcademica;
-    }
-
-    public void realizarRegistro(Estudiante estudiante) {
-        estudiante.diligenciado = true;
-        //estudiante.save();   Se guarda el estudiante en la base de datos
-        
-    }
-
-    public Estudiante  consultarInfoEstudiante(int ID){
-        //se busca el estudiante con el ID en la base de datos
-        Estudiante estudiante= new Estudiante();
-        return estudiante;
     }
 
 }
