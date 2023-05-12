@@ -24,17 +24,6 @@ public class InfoBachillerato {
 
     private Integer puntajeIcfes;
 
-    public InfoBachillerato(Long id, String ciudad, String departamento, String pais, String colegio, Integer year, String modalidad, Integer puntajeIcfes) {
-        this.id = id;
-        this.ciudad = ciudad;
-        this.departamento = departamento;
-        this.pais = pais;
-        this.colegio = colegio;
-        this.year = year;
-        this.modalidad = modalidad;
-        this.puntajeIcfes = puntajeIcfes;
-    }
-
     public Long getId() {
         return this.id;
     }
