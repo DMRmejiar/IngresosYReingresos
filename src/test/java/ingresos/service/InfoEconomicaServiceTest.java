@@ -3,14 +3,11 @@ package ingresos.service;
 import ingresos.domain.InfoEconomica;
 import ingresos.repository.IInfoEconomicaRepository;
 import org.springframework.boot.test.context.SpringBootTest;
-import ingresos.domain.InfoBachillerato;
-import ingresos.repository.IInfoBachilleratoRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 import java.util.List;
