@@ -1,7 +1,5 @@
 package ingresos.service;
-import ingresos.domain.MatriculaSemestre;
 import ingresos.domain.OtroEstudioFormal;
-import ingresos.repository.IMatriculaSemestreRepository;
 import ingresos.repository.IOtroEstudioFormalRepository;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.Test;
