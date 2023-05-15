@@ -1,22 +1,21 @@
 package ingresos.service;
 import ingresos.domain.OtroEstudioFormal;
 import ingresos.repository.IOtroEstudioFormalRepository;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-@RunWith(MockitoJUnitRunner.class)
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class OtroEstudioFormalServiceTest {
 
     @Mock
