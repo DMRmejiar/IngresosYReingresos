@@ -9,7 +9,7 @@
     <property name="fileExtensions" value=""/>
     <!-- For detailed checkstyle configuration, see https://github.com/spring-io/nohttp/tree/master/nohttp-checkstyle -->
     <module name="io.spring.nohttp.checkstyle.check.NoHttpCheck">
-        <property name="allowlist" value="^\Qhttp://maven.apache.org/POM/4.0.0&#10;^\Qhttp://www.w3.org/2001/XMLSchema-instance"/>
+        <property name="allowlist" value="^\Qhttp://maven.apache.org/POM/4.0.0&#10;^\Qhttp://www.w3.org/2001/XMLSchema-instance&#10;^\Qhttp://20.241.215.128:9000/api/project_badges/measure?project=LocalBackendIngresos&amp;metric=alert_status&amp;token=sqb_2ed98560d92989ed1ac107111308020f960d42df&#10;^\Qhttp://20.241.215.128:9000/dashboard?id=LocalBackendIngresos"/>
     </module>
     <!-- Allow suppression with comments
        // CHECKSTYLE:OFF
