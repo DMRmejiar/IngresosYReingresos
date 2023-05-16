@@ -4,10 +4,12 @@ import ingresos.domain.InfoPersonal;
 import ingresos.repository.IInfoPersonalRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class InfoPersonalService {
     @Autowired
     IInfoPersonalRepository repository;

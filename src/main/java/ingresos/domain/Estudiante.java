@@ -22,7 +22,7 @@ public class Estudiante extends Usuario  {
     private InfoEconomica infoEconomica;
 
     @OneToOne
-    @Column(name = "id-info-academica")
+    @JoinColumn(name = "id-info-academica")
     private InfoAcademica infoAcademica;
 
 
