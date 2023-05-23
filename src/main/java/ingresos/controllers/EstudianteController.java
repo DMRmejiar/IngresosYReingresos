@@ -1,48 +1,49 @@
 package ingresos.controllers;
 
-import ingresos.domain.Estudiante;
+import ingresos.models.Estudiante;
 import ingresos.service.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/estudiante")
 public class EstudianteController {
 
     @Autowired
-    private EstudianteService service;
+    EstudianteService service;
 
     @GetMapping
-    public List<Estudiante> getAll(){
-        return this.service.getAll();
+    @ResponseBody
+    public List<Estudiante> getAllEstudiantes() {
+        return service.getAllEstudiantes();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Estudiante> getEstudianteById(@PathVariable int id) {
+        Estudiante estudiante = service.getEstudianteById(id);
+        return ResponseEntity.ok(estudiante);
     }
 
     @PostMapping
-    public Estudiante save(@RequestBody Estudiante toSave){
-        return this.service.save(toSave);
+    public ResponseEntity<Estudiante> createEstudiante(@RequestBody Estudiante estudiante) {
+        Estudiante createdEstudiante = service.createEstudiante(estudiante);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdEstudiante);
     }
 
-    @GetMapping(path = "/{id}")
-    public Optional<Estudiante> getById(Long id){
-        return this.service.getById(id);
+    @PutMapping("/{id}")
+    public ResponseEntity<Estudiante> updateEstudiante(@PathVariable int id, @RequestBody Estudiante estudianteData) {
+        Estudiante updatedEstudiante = service.updateEstudiante(id, estudianteData);
+        return ResponseEntity.ok(updatedEstudiante);
     }
 
-    @PutMapping(path = "/{id}")
-    public Estudiante updateById(@RequestBody Estudiante request ,@PathVariable("id") Long id){
-        return this.service.updateById(request, id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteEstudiante(@PathVariable int id) {
+        service.deleteEstudiante(id);
+        return ResponseEntity.noContent().build();
     }
-
-    @DeleteMapping(path = "/{id}")
-    public String deleteById(@PathVariable("id") Long id){
-        Boolean deleted = this.service.delete(id);
-        if (deleted) {
-            return ("Estudiante eliminado con exito");
-        }else{
-            return ("No se pude eliminar al estudiante");
-        }
-    }
-
 }

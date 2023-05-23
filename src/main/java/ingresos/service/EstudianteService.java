@@ -1,47 +1,52 @@
 package ingresos.service;
 
-import ingresos.domain.Estudiante;
+import ingresos.models.Estudiante;
 import ingresos.repository.IEstudianteRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
 public class EstudianteService {
 
     @Autowired
-    IEstudianteRepository repository;
+    IEstudianteRepository estudianteRepository;
 
-    public Estudiante save(Estudiante toSave){
-        return repository.save(toSave);
+    public List<Estudiante> getAllEstudiantes() {
+        return estudianteRepository.findAll();
     }
 
-    public List<Estudiante> getAll(){
-        return repository.findAll();
-    }
-
-    public Optional<Estudiante> getById(Long id){
-        return repository.findById(id);
-    }
-
-    public Estudiante updateById(Estudiante request, Long id){
-        Estudiante actualizado = repository.findById(id).orElse(null);
-        if (actualizado != null){
-            BeanUtils.copyProperties(request, actualizado, "id");
-            return repository.save(actualizado);
+    public Estudiante getEstudianteById(int id) {
+        Optional<Estudiante> estudiante = estudianteRepository.findById(id);
+        if (estudiante.isPresent()) {
+            return estudiante.get();
+        } else {
+            throw new NoSuchElementException("Estudiante no encontrado");
         }
-        return null;
     }
 
-    public Boolean delete(Long id){
-        try{
-            repository.deleteById(id);
-            return true;
-        }catch (Exception e){
-            return false;
+    public Estudiante createEstudiante(Estudiante estudiante) {
+        return estudianteRepository.save(estudiante);
+    }
+
+    public Estudiante updateEstudiante(int id, Estudiante estudianteData) {
+        Optional<Estudiante> estudiante = estudianteRepository.findById(id);
+        if (estudiante.isPresent()) {
+            Estudiante updatedEstudiante = estudiante.get();
+
+            BeanUtils.copyProperties(estudianteData, updatedEstudiante, "idEstudiante");
+
+            return estudianteRepository.save(updatedEstudiante);
+        } else {
+            throw new NoSuchElementException("Estudiante no encontrado");
         }
+    }
+
+    public void deleteEstudiante(int id) {
+        estudianteRepository.deleteById(id);
     }
 }
