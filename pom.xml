@@ -779,9 +779,6 @@
                             <exclude>**/*IT*</exclude>
                             <exclude>**/*IntTest*</exclude>
                         </excludes>
-                        <includes>
-                            <include>**/*Test.java</include>
-                        </includes>
                     </configuration>
                 </plugin>
                 <plugin>
